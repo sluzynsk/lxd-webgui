@@ -6,7 +6,12 @@ Written completely in AngularJS. Does not need an application server, database o
 
 # Status
 
-This software is beta.
+This software is beta. Since the original author appears to have abandoned it -
+no updates in over 2 years - I'm forking and starting the painful tedious process
+of updating it to modern JavaScript coding standards (removing bower, using yarn, etc.) before I start trying to add functionality to it. 
+
+Important:
+If you are trying to install this right now, it's broken and you are wasting your time. I will remove this line from the documentation when it actually builds - until then, I'm just too cheap to pay for a private repo so you can watch the sausage being made.
 
 ## Browser support
 
@@ -27,37 +32,22 @@ The installation procedure is as follows:
 
 ## Install LXD itself
 
-install lxd as described here:
- - https://linuxcontainers.org/lxd/getting-started-cli/
- - https://www.stgraber.org/2016/03/15/lxd-2-0-installing-and-configuring-lxd-212/
-
-My lxd init looks like this:
-```
-$ sudo lxd init
-Name of the storage backend to use (dir or zfs): zfs
-Create a new ZFS pool (yes/no)? yes
-Name of the new ZFS pool: lxdpool
-Would you like to use an existing block device (yes/no)? no
-Size in GB of the new loop device (1GB minimum): 16
-Would you like LXD to be available over the network (yes/no)? no
-LXD has been successfully configured.
-```
+Install lxd if required. I recommend using your distro's package manager but you do you. 
 
 ## Install LXD-WEBGUI
 
 ### Prerequisites
 
-Install npm, bower and a simple http server:
+Install npm and http-server:
 ```
 $ sudo apt-get install npm
-$ sudo npm install -g bower
 $ sudo npm install -g http-server
 ```
 
 ### checkout LXD-WEBGUI
 
 ```
-$ git clone https://github.com/dobin/lxd-webgui.git
+$ git clone https://github.com/sluzynsk/lxd-webgui.git
 $ cd lxd-webgui
 ```
 
@@ -66,7 +56,7 @@ $ cd lxd-webgui
 
 install web dependencies for lxc-gui:
 ```
-lxd-webgui$ bower install
+lxd-webgui$ yarn
 ```
 
 ### HTTP server
